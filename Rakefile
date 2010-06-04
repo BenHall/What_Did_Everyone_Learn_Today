@@ -8,3 +8,13 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 require 'tasks/rails'
+
+task :cron => :environment do
+ if Time.now.hour % 4 == 0 # run every four hours
+   puts 'Every four hour'
+   puts "done."
+ end
+ if Time.now.hour == 0 # run at midnight
+   puts 'Midnight'
+ end
+end
